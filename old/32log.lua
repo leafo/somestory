@@ -45,7 +45,7 @@ function class(name)
   function newclass:super(func,...)
 	local super = self._super
 	self._super = self._super._super
-	super[func](self,unpack(arg))
+	super[func](self,...)
 	self._super = super
   end
   return setmetatable(newclass,{__call=newclass.define})
