@@ -137,13 +137,13 @@ function Doormat:draw()
 end
 function Doormat:drawSprite()
 	love.graphics.setColor(255,255,255,255 * self.scene.fgAlpha)
-	love.graphics.drawq(self.spriteSheet.image,self:getFrame(),math.ceil(self.parent.x),math.ceil(self.parent.y+1),0,1,1,0,0)
+	love.graphics.draw(self.spriteSheet.image,self:getFrame(),math.ceil(self.parent.x),math.ceil(self.parent.y+1),0,1,1,0,0)
 end
 function Doormat:drawCapSprite()
 	local y = -self.parent.frame
 	if self.parent.state == 'close' then y = -(3 - self.parent.frame) end
 	love.graphics.setColor(255,255,255,255 * self.scene.fgAlpha)
-	love.graphics.drawq(self.spriteSheet.image,self:getFrame(),math.ceil(self.parent.parent.x),math.ceil(self.parent.parent.y+y),0,1,1,0,0)
+	love.graphics.draw(self.spriteSheet.image,self:getFrame(),math.ceil(self.parent.parent.x),math.ceil(self.parent.parent.y+y),0,1,1,0,0)
 end
 function Doormat:init_collider()
 	self.collider:add(self.entryWay,self.scene)

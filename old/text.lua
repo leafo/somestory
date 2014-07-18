@@ -74,7 +74,7 @@ function Char:draw_active()
 	local image = self.spriteSheet.image
 	local quad = self.sprite:getFrame()
 	love.graphics.setColor(255,255,255,255*self.alpha*self.scene.alpha)
-	love.graphics.drawq(image,quad,math.ceil(self.x),math.ceil(self.y),0,1,1,0,0)
+	love.graphics.draw(image,quad,math.ceil(self.x),math.ceil(self.y),0,1,1,0,0)
 end
 
 function Char:update_fade(dt)

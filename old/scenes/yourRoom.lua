@@ -17,7 +17,7 @@ function scenes.yourRoom:spawn()
 	self.sprite = Sprite:new(self.spriteSheet)
 	self.sprite.draw = function(self)
 		love.graphics.setColor(255,255,255,255 * self.scene.alpha)
-		love.graphics.drawq(self.spriteSheet.image,self:getFrame(),math.ceil(self.x),math.ceil(self.y))
+		love.graphics.draw(self.spriteSheet.image,self:getFrame(),math.ceil(self.x),math.ceil(self.y))
 		love.graphics.setColor(255,255,255,255)
 		love.graphics.draw(self.scene.imageFG,math.ceil(self.x),math.ceil(self.y))
 	end

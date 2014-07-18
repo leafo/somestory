@@ -46,7 +46,7 @@ end
 function PlayerBubbleDisplay:draw()
 	if self.collider.uniqueID.Player.scene ~= scenes.NILSCENE then
 		love.graphics.setColor(255,255,255,255 * self.parent.alpha * self.parent.scene.alpha)
-		love.graphics.drawq(self.spriteSheet.image,self:getFrame(),math.ceil(self.x),math.ceil(self.y),0,1,1,
+		love.graphics.draw(self.spriteSheet.image,self:getFrame(),math.ceil(self.x),math.ceil(self.y),0,1,1,
 			self.spriteSheet.image:getWidth()/2,self.spriteSheet.image:getHeight()/2)
 	end
 end
@@ -264,7 +264,7 @@ function Sword:draw()
 	local rotationDir = math.floor(self.rotation.a / tlz.RAD90)
 	local rotationOffsetX = (rotationDir == 3 or rotationDir == 2) and -1 or 0
 	local rotationOffsetY = (rotationDir == 0 or rotationDir == 3) and -1 or 0
-	love.graphics.drawq(image,quad,math.ceil(self.player.x)+rotationOffsetX,math.ceil(self.player.y)+rotationOffsetY,
+	love.graphics.draw(image,quad,math.ceil(self.player.x)+rotationOffsetX,math.ceil(self.player.y)+rotationOffsetY,
 						rotationDir*tlz.RAD90,1,1,24,24)
 end
 function Sword:update(dt)
@@ -355,7 +355,7 @@ end
 function PlayerHPBlips:draw()
 	if self.parent.hp > 0 then
 		self.frame = self.parent.hp - 1
-		love.graphics.drawq(self.spriteSheet.image,self:getFrame(),math.ceil(self.parent.parent.x-3),math.ceil(self.parent.parent.y-3),0,1,1,8,8)
+		love.graphics.draw(self.spriteSheet.image,self:getFrame(),math.ceil(self.parent.parent.x-3),math.ceil(self.parent.parent.y-3),0,1,1,8,8)
 	end
 end
 
@@ -399,7 +399,7 @@ function PlayerHP:init_collider()
 end
 function PlayerHP:draw()
 	self.frame = self.maxhp - 1
-	love.graphics.drawq(self.spriteSheet.image,self:getFrame(),math.ceil(self.parent.x - 3),math.ceil(self.parent.y - 3),0,1,1,8,8)
+	love.graphics.draw(self.spriteSheet.image,self:getFrame(),math.ceil(self.parent.x - 3),math.ceil(self.parent.y - 3),0,1,1,8,8)
 end
 
 class "Player" : extends(Circle) {
@@ -606,7 +606,7 @@ function Player:onCollision(other,data)end
 function Player:drawSprite()
 	local scale = tlz.scale(0,self.parent.hitTime,1)  * .3 + .7
 	love.graphics.setColor(255,255,255,255*scale)
-	love.graphics.drawq(self.spriteSheet.image,self:getFrame(),math.ceil(self.x),math.ceil(self.y),0,1,1,
+	love.graphics.draw(self.spriteSheet.image,self:getFrame(),math.ceil(self.x),math.ceil(self.y),0,1,1,
 		8,8)
 end
 function Player:resetVels()
@@ -696,7 +696,7 @@ end
 function PlayerNegativeOverlay:draw()
 	local image = self.sprite.spriteSheet.image
 	local quad = self.sprite:getFrame()
-	love.graphics.drawq(image,quad,math.ceil(self.x),math.ceil(self.y),0,1,1,
+	love.graphics.draw(image,quad,math.ceil(self.x),math.ceil(self.y),0,1,1,
 		math.ceil(self.parent.radius),math.ceil(self.parent.radius))
 end
 function PlayerNegativeOverlay:remove()

@@ -35,7 +35,7 @@ function scenes.home:spawn()
 	self.sprite = Sprite:new(self.spriteSheet)
 	self.sprite.draw = function(self)
 		love.graphics.setColor(255,255,255,255 * self.scene.alpha)
-		love.graphics.drawq(self.spriteSheet.image,self:getFrame(),math.ceil(self.x),math.ceil(self.y))
+		love.graphics.draw(self.spriteSheet.image,self:getFrame(),math.ceil(self.x),math.ceil(self.y))
 		love.graphics.setColor(255,255,255,255 * self.scene.fgAlpha)
 		love.graphics.draw(self.scene.imageFG,math.ceil(self.x),math.ceil(self.y))
 	end
@@ -205,7 +205,7 @@ function Mom:draw()
 	local image = self.spriteSheet.image
 	local quad = self.sprite:getFrame()
 	love.graphics.setColor(255,255,255,255 * self.scene.alpha)
-	love.graphics.drawq(image,quad,math.ceil(self.x),math.ceil(self.y),0,1,1,
+	love.graphics.draw(image,quad,math.ceil(self.x),math.ceil(self.y),0,1,1,
 		self.spriteSheet.image:getWidth()/2,self.spriteSheet.image:getHeight()/2)
 end
 
@@ -332,7 +332,7 @@ function Stairs:interactExit2()
 end
 function Stairs:draw(x,y)
 	love.graphics.setColor(255,255,255,255 * self.scene.fgAlpha)
-	love.graphics.drawq(self.spriteSheet.image,self:getFrame(),math.ceil(self.x),math.ceil(self.y),0,1,1,0,0)
+	love.graphics.draw(self.spriteSheet.image,self:getFrame(),math.ceil(self.x),math.ceil(self.y),0,1,1,0,0)
 end
 function Stairs:updateStairs(dt)
 	local player = self.collider.uniqueID.Player
@@ -694,7 +694,7 @@ function Door:draw()
 end
 function Door:drawSprite()
 	love.graphics.setColor(255,255,255,255 * self.scene.fgAlpha)
-	love.graphics.drawq(self.spriteSheet.image,self:getFrame(),math.ceil(self.parent.x),math.ceil(self.parent.y),0,1,1,0,0)
+	love.graphics.draw(self.spriteSheet.image,self:getFrame(),math.ceil(self.parent.x),math.ceil(self.parent.y),0,1,1,0,0)
 end
 function Door:init_collider()
 	self.collider:add(self.entryWay,self.scene)

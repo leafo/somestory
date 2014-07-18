@@ -277,7 +277,7 @@ function SimpleGobber:draw()
 	local image = self.spriteSheet.image
 	local quad = self.sprite:getFrame()
 	love.graphics.setColor(255,255,255,255 * self.scene.alpha)
-	love.graphics.drawq(image,quad,math.ceil(self.x),math.ceil(self.y),math.floor(self.dir / tlz.RAD90)*tlz.RAD90,1,1,4,4)
+	love.graphics.draw(image,quad,math.ceil(self.x),math.ceil(self.y),math.floor(self.dir / tlz.RAD90)*tlz.RAD90,1,1,4,4)
 end
 function SimpleGobber:remove()
 	self.sprite:remove()
